@@ -1,15 +1,14 @@
-import React, { Component } from "react";
-import { TailSpin } from "react-loader-spinner";
+import React from "react";
+import { Puff } from "react-loader-spinner";
+import "react-loader-spinner";
 import "./Loader.css";
 
-class Loader extends Component {
-  render() {
-    return (
-      <div className="loader">
-        <TailSpin color="#00BFFF" height={80} width={80} />
-      </div>
-    );
-  }
-}
+const LoaderComponent = () => {
+  return (
+    <div className="loader">
+      <Puff color="#00BFFF" height={100} width={100} />
+    </div>
+  );
+};
 
-export default Loader;
+export default LoaderComponent;

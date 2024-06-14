@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Searchbar from "./Searchbar/Searchbar";
 import ImageGallery from "./ImageGallery/ImageGallery";
 import Loader from "./Loader/Loader";
@@ -11,8 +11,21 @@ const App = () => {
   const [showModal, setShowModal] = useState(false);
   const [largeImageURL, setLargeImageURL] = useState("");
 
-  const handleSearch = (query) => {
-    // Funkcja wyszukiwania
+  const API_KEY = "43574769-6e37a5f1df9cad927843c4fc7";
+
+  const handleSearch = async (query) => {
+    setIsLoading(true);
+    try {
+      const response = await fetch(
+        `https://pixabay.com/api/?q=${query}&key=${API_KEY}`,
+      );
+      const data = await response.json();
+      setImages(data.hits);
+    } catch (error) {
+      console.error("Error fetching images:", error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleImageClick = (url) => {

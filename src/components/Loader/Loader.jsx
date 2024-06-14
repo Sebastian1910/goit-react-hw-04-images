@@ -1,6 +1,6 @@
 import React from "react";
 import { Puff } from "react-loader-spinner";
-import "react-loader-spinner";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import "./Loader.css";
 
 const LoaderComponent = () => {
